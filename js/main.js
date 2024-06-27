@@ -1,31 +1,28 @@
-const{ createApp }= Vue;
+const { createApp } = Vue;
 
 createApp({
   data() {
     return {
-        EmailList:[],
-
+      EmailList: [],
+      Email: "",
     };
   },
-  methods: {
-
-async CreaEmail(){
-        await axios
-          .get("https://flynn.boolean.careers/exercises/api/random/mail")
-          .then((email) => {
-            const result = email.data;
-            console.log(result);
-            return result.response;
-          }); 
-    }
-  },
- async mounted(){
+  methods: {},
+  mounted() {
+for (let index = 0; index < 10; index++) {
+   axios
+      .get("https://flynn.boolean.careers/exercises/api/random/mail")
+      .then((email) => {
+        const result = email.data;
+        console.log(result);
+        this.Email = result.response;
+        this.EmailList.push(this.Email);
+        console.log(this.Email);
+        console.log(this.EmailList);
+      }); 
     
-    while (this.EmailList.length<10) {
+}
+    
 
-      await this.EmailList.push(await this.CreaEmail());
-        
-    }
-console.log(this.EmailList);
   },
 }).mount("#container");
