@@ -13,7 +13,7 @@
 <div id="container">
 
     <div>
-        <ul>
+        <ul v-if="EmailList.length >= 10">
             <li v-for="email in EmailList" >{{email}}</li>
         </ul>
     </div>

@@ -14,11 +14,12 @@ for (let index = 0; index < 10; index++) {
       .get("https://flynn.boolean.careers/exercises/api/random/mail")
       .then((email) => {
         const result = email.data;
-        console.log(result);
+        console.log( "1"+ result);
         this.Email = result.response;
+         console.log("2"+this.Email);
         this.EmailList.push(this.Email);
-        console.log(this.Email);
-        console.log(this.EmailList);
+       
+        console.log( "3"+this.EmailList);
       }); 
     
 }
